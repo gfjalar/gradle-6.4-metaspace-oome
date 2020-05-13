@@ -1,6 +1,2 @@
 group = "gradle.metaspace.oome"
 description = "template"
-
-dependencies {
-  api("commons-io:commons-io:2.4")
-}
