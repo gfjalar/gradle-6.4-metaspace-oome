@@ -4,11 +4,14 @@ plugins {
 
 rootProject.name = "root"
 
-List<String> subprojects = fileTree(dir: rootDir, include: 'generated/*/build.gradle').collect { it.getParentFile().getName() }
+Set<File> subprojects = fileTree(dir: rootDir, include: ['generated/*/build.gradle', 'subprojects/*/build.gradle']).getFiles()
 
-subprojects.each { name ->
+subprojects.each { buildFile ->
+  File projectDir = buildFile.getParentFile()
+  String name = projectDir.getName()
+
   include ":$name"
-  project(":$name").projectDir = file("$rootDir/generated/$name")
+  project(":$name").projectDir = projectDir
 }
 
 buildCache.local.enabled = false

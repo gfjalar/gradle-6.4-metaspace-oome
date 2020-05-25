@@ -1,0 +1,7 @@
+group = "gradle.b"
+description = "b"
+
+dependencies {
+  testImplementation project(":a")
+  testImplementation('junit:junit:4.13')
+}
