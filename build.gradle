@@ -33,7 +33,7 @@ subprojects {
         "-Xss256M",
         "-XX:+HeapDumpOnOutOfMemoryError",
         "-XX:+CMSClassUnloadingEnabled",
-        "-XX:MaxMetaspaceSize=512m"
+        "-XX:MaxMetaspaceSize=${findProperty('maxMetaspaceSize') ?: '512m'}".toString()
       ]
     }
   }
