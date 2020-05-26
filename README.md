@@ -16,3 +16,4 @@
 
 1. `./gradlew a:assemble --no-build-cache --scan`
 1. `./gradlew b:test -PmaxMetaspaceSize=1g --no-build-cache --scan`
+1. [FIX] `./gradlew a:clean b:test --no-build-cache -PmaxMetaspaceSize=1g --scan`
