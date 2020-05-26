@@ -36,5 +36,10 @@ subprojects {
         "-XX:MaxMetaspaceSize=512m"
       ]
     }
+    doLast {
+      if (scalaCompileOptions.force) {
+        scalaCompileOptions.incrementalOptions.analysisFile.get().asFile.delete()
+      }
+    }
   }
 }
