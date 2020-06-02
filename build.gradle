@@ -36,5 +36,10 @@ subprojects {
         "-XX:MaxMetaspaceSize=${findProperty('maxMetaspaceSize') ?: '512m'}".toString()
       ]
     }
+    doLast {
+      if (scalaCompileOptions.force) {
+        scalaCompileOptions.incrementalOptions.analysisFile.get().asFile.delete()
+      }
+    }
   }
 }
